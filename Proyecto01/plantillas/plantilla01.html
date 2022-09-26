@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    {% include "barra.html" %}
+    
     <h1>Hola primera vista </h1>
     <h2>
         {% if nombre_persona == 'Profesor Efrain' %}
@@ -17,7 +19,7 @@
     </h2>
     <p>El nombre del profesor es: {{nombre_persona}} {{apellido_persona}}</p>
     <p>La fecha actual es el día: {{fecha_actual.day}}/{{fecha_actual.month}}/{{fecha_actual.year}}</p>
-    <p>Los temas actuales}</p>
+    <p>Los temas actuales</p>
     <p>
         <ul>
             {% if temas %}
@@ -30,5 +32,6 @@
 
         </ul>
     </p>
+
 </body>
 </html>
