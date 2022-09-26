@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola primera vista </h1>
+    <h2>
+        {% if nombre_persona == 'Profesor Efrain' %}
+            <p>El curso lo imparte el titular</p>
+            {% else %}
+            <p>No es titular</p>
+        {% endif %}
+    </h2>
+    <p>El nombre del profesor es: {{nombre_persona}} {{apellido_persona}}</p>
+    <p>La fecha actual es el día: {{fecha_actual.day}}/{{fecha_actual.month}}/{{fecha_actual.year}}</p>
+    <p>Los temas actuales}</p>
+    <p>
+        <ul>
+            {% if temas %}
+                {% for elTema in temas %}
+                    <li>{{elTema}}</li>
+                {% endfor %}
+            {% else %}
+                <p>No Hay elementos</p>
+            {% endif %}
+
+        </ul>
+    </p>
+</body>
+</html>
