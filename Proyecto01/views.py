@@ -1,14 +1,29 @@
 from datetime import datetime
 from re import template
+from unittest import loader
 from xml.dom.minidom import Document
 from django.http import HttpResponse
 from django.template import Template, Context
+from django.template.loader import get_template
 import datetime 
 
 class Persona(object):
     def __init__(self, nombre, apellido):
         self.nombre=nombre
         self.apellido=apellido
+
+def saludotemplate(request):
+    nombre="Efrain"
+    apellido="Diaz"
+    temas=["Plantillas","Modelos","Formularios","Vistas","Deslpiegue"]
+    p1=Persona("Profesor Efrain","Diaz")
+    ahora=datetime.datetime.now()
+
+    doc_externo=get_template("plantilla01.html")
+    
+    documento=doc_externo.render({"nombre_persona":p1.nombre,"apellido_persona":p1.apellido,"fecha_actual":ahora,"temas":temas})
+
+    return HttpResponse(documento)
 
 def saludo(request):
     nombre="Efrain"
